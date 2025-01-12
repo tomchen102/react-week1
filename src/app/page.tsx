@@ -1,7 +1,6 @@
 "use client";
 import { ProductsDataProps } from "./types";
 import { useEffect, useState } from "react";
-import { createRoot } from "react-dom/client";
 import Image from "next/image";
 function App() {
   const [tempProduct, setTempProduct] = useState<ProductsDataProps | null>(
