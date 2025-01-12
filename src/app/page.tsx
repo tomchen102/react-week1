@@ -8,6 +8,7 @@ function App() {
     null
   );
   const [productList, setProductList] = useState<ProductsDataProps[]>([]);
+
   useEffect(() => {
     const fetchProducts = async () => {
       const result = await products();
@@ -15,13 +16,7 @@ function App() {
     };
     fetchProducts();
   }, []);
-  useEffect(() => {
-    const rootElement = document.getElementById("root");
-    if (rootElement) {
-      const root = createRoot(rootElement);
-      root.render(<App />);
-    }
-  }, []);
+
   const products = async (): Promise<ProductsDataProps[]> => {
     return [
       {
@@ -125,6 +120,8 @@ function App() {
                 src={tempProduct.imageUrl}
                 className="card-img-top primary-image"
                 alt="主圖"
+                width={300}
+                height={200}
               />
               <div className="card-body">
                 <h5 className="card-title">
@@ -149,6 +146,8 @@ function App() {
                       src={url}
                       className="images"
                       alt="更多圖片"
+                      width={100}
+                      height={100}
                     />
                   ))}
                 </div>
@@ -164,5 +163,5 @@ function App() {
 }
 
 export default function Home() {
-  return <div id="root"></div>;
+  return <App />;
 }
